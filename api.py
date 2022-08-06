@@ -23,7 +23,7 @@ def add_record():
     return response
 
 @app.route('/fee_tracker/<int:id>', methods = ['PUT'])
-def update_record():
+def update_record(id):
     
     user_input = request.get_json()
     Fee_Tracker.update_record(id,
@@ -35,7 +35,7 @@ def update_record():
     return response
 
 @app.route('/fee_tracker/<int:id>', methods = ['DELETE'])
-def delete_record():
+def delete_record(id):
     
     Fee_Tracker.delete_record(id)
     response = Response("Record Deleted!", status = 200, mimetype = 'application/json')
